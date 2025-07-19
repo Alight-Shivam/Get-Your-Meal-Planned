@@ -7,7 +7,7 @@ import HealthIcon from '@mui/icons-material/LocalHospital';
 
 // Import all components
 import DashboardContent from './components/DashboardContent';
-// import ProfileContent from './components/ProfileContent';
+import ProfileContent from './components/ProfileContent';
 // import MealPlansContent from './components/MealPlansContent';
 // import CurrentPlanContent from './components/CurrentPlanContent';
 // import PlanHistoryContent from './components/PlanHistoryContent';
@@ -56,8 +56,8 @@ function PageContent({ pathname }: { pathname: string }) {
   switch (pathname) {
     case '/dashboard':
       return <DashboardContent />;
-    // case '/profile':
-    //   return <ProfileContent />;
+    case '/profile':
+      return <ProfileContent />;
     // case '/meal-plans':
     //   return <MealPlansContent />;
     // case '/meal-plans/current-plan':
