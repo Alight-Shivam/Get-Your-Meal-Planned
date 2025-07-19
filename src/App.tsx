@@ -39,10 +39,10 @@ const demoTheme = createTheme({
   },
   palette: {
     primary: {
-      main: '#4caf50', // Health-focused green color
+      main: '#2088cdff', // Health-focused green color
     },
     secondary: {
-      main: '#ff9800', // Complementary orange
+      main: '#1c2a69ff', // Complementary orange
     },
   },
 });

@@ -1,6 +1,21 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import PrintIcon from '@mui/icons-material/Print';
+import ShareIcon from '@mui/icons-material/Share';
+
+// SpeedDial actions configuration
+const actions = [
+  { icon: <FileCopyIcon />, name: 'Copy' },
+  { icon: <SaveIcon />, name: 'Save' },
+  { icon: <PrintIcon />, name: 'Print' },
+  { icon: <ShareIcon />, name: 'Share' },
+];
 
 // Map Component
 function MapComponent() {
@@ -80,8 +95,30 @@ function QuickActionsComponent() {
 }
 
 export default function DashboardContent() {
+  const handleSpeedDialAction = (actionName: any) => {
+    console.log(`${actionName} action clicked`);
+    // Add your action handlers here
+    switch(actionName) {
+      case 'Copy':
+        // Handle copy action
+        break;
+      case 'Save':
+        // Handle save action
+        break;
+      case 'Print':
+        // Handle print action
+        window.print();
+        break;
+      case 'Share':
+        // Handle share action
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
-    <Box sx={{ p: 3 }}>
+    <Box sx={{ position: 'relative', p: 3, minHeight: '100vh' }}>
       {/* Dashboard Header */}
       <Box sx={{ mb: 4, textAlign: 'center' }}>
         <Typography variant="h4" component="h1" gutterBottom>
@@ -126,6 +163,22 @@ export default function DashboardContent() {
           </Box>
         </Box>
       </Box>
+
+      {/* Floating SpeedDial */}
+      <SpeedDial
+        ariaLabel="Dashboard SpeedDial"
+        sx={{ position: 'fixed', bottom: 24, right: 24 }}
+        icon={<SpeedDialIcon />}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+            onClick={() => handleSpeedDialAction(action.name)}
+          />
+        ))}
+      </SpeedDial>
     </Box>
   );
 }
